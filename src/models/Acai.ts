@@ -6,6 +6,7 @@ export interface IAcai extends Document {
   description: string;
   size: string;
   price: number;
+  imageUrl: string;
 }
 
 // Esquema (Schema) Mongoose para o modelo Acai
@@ -14,6 +15,7 @@ const AcaiSchema: Schema = new Schema({
   description: { type: String, required: true },
   size: { type: String, required: true },
   price: { type: Number, required: true },
+  imageUrl: { type: String, required: true },
 });
 
 // Modelo Mongoose para Acai
