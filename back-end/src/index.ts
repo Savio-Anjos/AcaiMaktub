@@ -1,4 +1,3 @@
-import express from "express";
 import { app } from "./server";
 import { router } from "./routes/routes";
 
