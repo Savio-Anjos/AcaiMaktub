@@ -40,6 +40,11 @@ export const acaiSlice = createSlice({
         state.error = null;
       })
 
+      .addCase(fetchAcais.fulfilled, (state, action) => {
+        state.loading = false;
+        state.acais = action.payload;
+      })
+
       .addCase(fetchAcais.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch acais";
