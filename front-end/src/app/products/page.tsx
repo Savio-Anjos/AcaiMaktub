@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import styles from "./styles.module.css";
+import styles from "./page.module.css";
 import { useSelector } from "react-redux";
 import {
   createAcai,
@@ -11,6 +11,7 @@ import {
   selectAcais,
 } from "@/store/slices/acaiSlice";
 import { useAppDispatch } from "@/store";
+import { Trash2, Edit } from "react-feather";
 
 interface IFormData {
   name: string;
@@ -161,7 +162,7 @@ export default function Products() {
                 <li key={acai.id}>
                   <img src={acai.imageUrl} alt={acai.name} />
                   <div className={styles.contentCard}>
-                    <div>
+                    <div className={styles.cardCol1}>
                       <h4>{acai.name}</h4>
 
                       <p>{acai.description}</p>
@@ -170,6 +171,10 @@ export default function Products() {
                       <p>{acai.size}</p>
                       <p>R$ {acai.price.toFixed(2)}</p>
                     </div>
+                  </div>
+                  <div className={styles.icons}>
+                    <Edit className={styles.icon} />
+                    <Trash2 className={styles.icon} />
                   </div>
                 </li>
               </div>

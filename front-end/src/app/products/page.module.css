@@ -129,9 +129,6 @@
   border: 2px solid var(--accent-color);
 }
 
-.containerCards {
-}
-
 .cards {
   display: flex;
   justify-content: space-between;
@@ -191,6 +188,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cardCol1 {
+  max-width: 19rem;
+}
+
+.icons {
+  display: flex;
+  justify-content: end;
+}
+
+.icon {
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.5);
 }
 
 @keyframes bounce {
