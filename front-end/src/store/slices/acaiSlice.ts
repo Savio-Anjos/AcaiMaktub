@@ -3,7 +3,7 @@ import axios from "axios";
 import { RootState } from "../rootReducer";
 
 export interface IAcai {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   size: string;
@@ -30,9 +30,17 @@ export const fetchAcais = createAsyncThunk("acai/fetchAcais", async () => {
 
 export const createAcai = createAsyncThunk(
   "acai/createAcai",
-  async (newAcai: Omit<IAcai, "id">) => {
+  async (newAcai: Omit<IAcai, "_id">) => {
     const response = await axios.post("http://localhost:3333/acai", newAcai);
     return response.data;
+  }
+);
+
+export const deleteAcai = createAsyncThunk(
+  "acai/deleteAcai",
+  async (_id: string) => {
+    await axios.delete(`http://localhost:3333/acai/${_id}`);
+    return _id;
   }
 );
 
@@ -42,35 +50,41 @@ export const acaiSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-
       .addCase(fetchAcais.pending, (state) => {
-        state.loading = false;
+        state.loading = true;
         state.error = null;
       })
-
       .addCase(fetchAcais.fulfilled, (state, action) => {
         state.loading = false;
         state.acais = action.payload;
       })
-
       .addCase(fetchAcais.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch acais";
       })
-
       .addCase(createAcai.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
       .addCase(createAcai.fulfilled, (state, action) => {
         state.loading = false;
         state.acais.push(action.payload);
       })
-
       .addCase(createAcai.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to create acai";
+      })
+      .addCase(deleteAcai.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteAcai.fulfilled, (state, action) => {
+        state.loading = false;
+        state.acais = state.acais.filter((acai) => acai._id !== action.payload);
+      })
+      .addCase(deleteAcai.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to delete acai";
       });
   },
 });

@@ -1,17 +1,24 @@
 import { Edit, Trash2 } from "react-feather";
 import styles from "./styles.module.css";
-import { IAcai } from "@/store/slices/acaiSlice";
+import { IAcai, deleteAcai } from "@/store/slices/acaiSlice";
+import { useAppDispatch } from "@/store";
 
 interface CardProps {
   acais: IAcai[];
 }
 
 export function Card({ acais }: CardProps) {
+  const dispatch = useAppDispatch();
+
+  const handleDelete = (_id: string) => {
+    dispatch(deleteAcai(_id));
+  };
+
   return (
     <div className={styles.cards}>
       {acais.map((acai) => (
         <div className={styles.card}>
-          <li key={acai.id}>
+          <li>
             <img src={acai.imageUrl} alt={acai.name} />
             <div className={styles.contentCard}>
               <div className={styles.cardCol1}>
@@ -26,7 +33,10 @@ export function Card({ acais }: CardProps) {
             </div>
             <div className={styles.icons}>
               <Edit className={styles.icon} />
-              <Trash2 className={styles.icon} />
+              <Trash2
+                className={styles.icon}
+                onClick={() => handleDelete(acai._id)}
+              />
             </div>
           </li>
         </div>
