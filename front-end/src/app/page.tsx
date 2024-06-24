@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
 export default function Home() {
@@ -16,7 +17,9 @@ export default function Home() {
             só encontra aqui!
           </h3>
 
-          <button className={styles.button}>Ver Produtos</button>
+          <Link href="/products">
+            <button className={styles.button}>Ver Produtos</button>
+          </Link>
         </section>
 
         <section className={styles.image}>

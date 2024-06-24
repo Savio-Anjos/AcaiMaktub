@@ -15,7 +15,7 @@ import {
 import { useAppDispatch } from "@/store";
 import { Card } from "@/components/Card";
 import Modal from "@/components/Modal";
-import { IAcai } from "@/store/slices/acaiSlice";
+import { IAcai, IAcaiState } from "@/store/slices/acaiSlice";
 
 interface IFormData {
   name: string;
@@ -122,7 +122,7 @@ export default function Products() {
         showModal={showModal}
         handleCloseModal={handleCloseModal}
         handleSubmit={handleSubmit}
-        formData={formData}
+        formData={formData} // Passa formData para o modal
       />
 
       <section className={styles.containerCards}>
