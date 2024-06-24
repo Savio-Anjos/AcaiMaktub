@@ -88,3 +88,25 @@
     transform: translateY(-10px);
   }
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .wordWaves span {
+    margin-left: 12rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wordWaves span {
+    margin-left: 7rem;
+    font-size: 3rem;
+  }
+}
