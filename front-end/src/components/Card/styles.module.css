@@ -1,8 +1,8 @@
 .cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
 
 .card {
   margin-top: 2rem;
@@ -15,11 +15,11 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease;
 }
- 
+
 .card h3 {
   font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .card ul {

@@ -1,4 +1,5 @@
-import { FormEvent, useState } from "react";
+"use client";
+import { FormEvent, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 
 interface IFormData {
@@ -7,41 +8,47 @@ interface IFormData {
   size: string;
   price: string;
   imageUrl: string;
-} 
+}
 
 interface ModalProps {
   showModal: boolean;
   handleCloseModal: () => void;
   handleSubmit: (formData: IFormData) => void;
+  formData: IFormData | null;
 }
 
 export default function Modal({
   showModal,
   handleCloseModal,
   handleSubmit,
+  formData,
 }: ModalProps) {
-  const [formData, setFormData] = useState<IFormData>({
+  const [formState, setFormState] = useState<IFormData>({
     name: "",
     description: "",
-    size: "Small",
+    size: "small",
     price: "",
     imageUrl: "",
   });
 
+  useEffect(() => {
+    if (formData) {
+      setFormState(formData);
+    }
+  }, [formData]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleSubmit(formData);
+    handleSubmit(formState);
   };
 
-  if (!showModal) {
-    return null;
-  }
+  if (!showModal) return null;
 
   return (
     <div className={styles.modalBackdrop}>
@@ -49,14 +56,14 @@ export default function Modal({
         <button className={styles.closeButton} onClick={handleCloseModal}>
           &times;
         </button>
-        <h2>Cadastrar Açai</h2>
+        <h2>{formData ? "Editar Açai" : "Cadastrar Açai"}</h2>
         <form className={styles.form} onSubmit={onSubmit}>
           <label>
             Nome:
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formState.name}
               onChange={handleChange}
               required
             />
@@ -66,7 +73,7 @@ export default function Modal({
             <input
               type="text"
               name="description"
-              value={formData.description}
+              value={formState.description}
               onChange={handleChange}
               required
             />
@@ -75,7 +82,7 @@ export default function Modal({
             Tamanho:
             <select
               name="size"
-              value={formData.size}
+              value={formState.size}
               onChange={handleChange}
               required
             >
@@ -90,7 +97,7 @@ export default function Modal({
             <input
               type="number"
               name="price"
-              value={formData.price}
+              value={formState.price}
               onChange={handleChange}
               required
             />
@@ -100,13 +107,13 @@ export default function Modal({
             <input
               type="text"
               name="imageUrl"
-              value={formData.imageUrl}
+              value={formState.imageUrl}
               onChange={handleChange}
               required
             />
           </label>
           <button type="submit" className={styles.submitButton}>
-            Cadastrar
+            Salvar
           </button>
         </form>
       </div>
