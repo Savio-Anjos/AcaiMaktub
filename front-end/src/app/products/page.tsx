@@ -12,6 +12,7 @@ import {
 } from "@/store/slices/acaiSlice";
 import { useAppDispatch } from "@/store";
 import { Trash2, Edit } from "react-feather";
+import { Card } from "@/components/Card";
 
 interface IFormData {
   name: string;
@@ -156,30 +157,7 @@ export default function Products() {
         {loading && <p>Carregando...</p>}
         {error && <p>{error}</p>}
         <ul>
-          <div className={styles.cards}>
-            {acais.map((acai) => (
-              <div className={styles.card}>
-                <li key={acai.id}>
-                  <img src={acai.imageUrl} alt={acai.name} />
-                  <div className={styles.contentCard}>
-                    <div className={styles.cardCol1}>
-                      <h4>{acai.name}</h4>
-
-                      <p>{acai.description}</p>
-                    </div>
-                    <div>
-                      <p>{acai.size}</p>
-                      <p>R$ {acai.price.toFixed(2)}</p>
-                    </div>
-                  </div>
-                  <div className={styles.icons}>
-                    <Edit className={styles.icon} />
-                    <Trash2 className={styles.icon} />
-                  </div>
-                </li>
-              </div>
-            ))}
-          </div>
+          <Card acais={acais} />
         </ul>
       </section>
     </>

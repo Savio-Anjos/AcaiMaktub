@@ -129,85 +129,8 @@
   border: 2px solid var(--accent-color);
 }
 
-.cards {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.card {
-  margin-top: 2rem;
-  max-width: 30rem;
-  max-height: 30rem;
-  margin-right: 1rem;
-  overflow: auto;
-  border: 1px solid var(--primary-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s ease;
-}
 
-.card h3 {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.card ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.card li {
-  background-color: var(--background-color);
-  padding: 1rem;
-}
-
-.card li:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card h4 {
-  font-size: 1.6rem;
-  color: var(--secondary-color);
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  margin-bottom: 0.5rem;
-}
-
-.card img {
-  width: 26.5rem;
-  height: 14rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-}
-
-.contentCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cardCol1 {
-  max-width: 19rem;
-}
-
-.icons {
-  display: flex;
-  justify-content: end;
-}
-
-.icon {
-  margin-right: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.icon:hover {
-  transform: scale(1.5);
-}
 
 @keyframes bounce {
   0%,
