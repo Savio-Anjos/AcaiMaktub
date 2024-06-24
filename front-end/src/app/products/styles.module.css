@@ -1,0 +1,210 @@
+.createAcai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.button {
+  background-color: var(--highlight-color);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid var(--highlight-color);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation: bounce 2s infinite;
+  transition: 1s;
+}
+
+.button:hover {
+  background-color: #ffe079;
+  border: 2px solid #ffe079;
+  color: var(--secondary-color);
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: 1s;
+}
+
+.modal {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 1rem;
+}
+
+.form input {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  outline: none;
+}
+
+.form input:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 2px rgba(255, 224, 121, 0.7);
+}
+
+.form select {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--primary-color);
+  width: 104%;
+  background-color: white;
+  font-size: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    color 0.3s ease;
+  outline: none;
+}
+
+.form select:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 2px rgba(255, 224, 121, 0.7);
+}
+
+.form select:hover,
+.form select:focus {
+  border-color: var(
+    --highlight-color
+  ); /* Cor da borda quando hover ou focado */
+}
+
+.submitButton {
+  background-color: var(--highlight-color);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 2px solid var(--highlight-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.containerCards {
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-top: 2rem;
+  max-width: 30rem;
+  max-height: 30rem;
+  margin-right: 1rem;
+  overflow: auto;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card li {
+  background-color: var(--background-color);
+  padding: 1rem;
+}
+
+.card li:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h4 {
+  font-size: 1.6rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+.card img {
+  width: 26.5rem;
+  height: 14rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.contentCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}

@@ -1,10 +1,8 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import { Header } from "@/components/Header";
 export default function Home() {
   return (
     <>
-      <Header />
       <main className={styles.container}>
         <section className={styles.content}>
           <div className={styles.title}>

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../rootReducer";
 
-interface IAcai {
+export interface IAcai {
   id: string;
   name: string;
   description: string;
@@ -28,6 +28,14 @@ export const fetchAcais = createAsyncThunk("acai/fetchAcais", async () => {
   return response.data;
 });
 
+export const createAcai = createAsyncThunk(
+  "acai/createAcai",
+  async (newAcai: Omit<IAcai, "id">) => {
+    const response = await axios.post("http://localhost:3333/acai", newAcai);
+    return response.data;
+  }
+);
+
 export const acaiSlice = createSlice({
   name: "acai",
   initialState,
@@ -48,6 +56,21 @@ export const acaiSlice = createSlice({
       .addCase(fetchAcais.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch acais";
+      })
+
+      .addCase(createAcai.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+
+      .addCase(createAcai.fulfilled, (state, action) => {
+        state.loading = false;
+        state.acais.push(action.payload);
+      })
+
+      .addCase(createAcai.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to create acai";
       });
   },
 });
