@@ -51,11 +51,11 @@ A aplicação oferece funcionalidades para criação, listagem, atualização e 
 
 ### Rotas Principais
 
-- **POST** `/api/acai`: Cria um novo registro de Açaí.
-- **GET** `/api/acai`: Retorna todos os registros de Açaí.
-- **PUT** `/api/acai/:id`: Atualiza um registro de Açaí existente pelo ID.
-- **PATCH** `/api/acai/:id/price`: Atualiza apenas o preço de um registro de Açaí pelo ID.
-- **DELETE** `/api/acai/:id`: Deleta um registro de Açaí pelo ID.
+- **POST** `/acai`: Cria um novo registro de Açaí.
+- **GET** `/acai`: Retorna todos os registros de Açaí.
+- **PUT** `/acai/:id`: Atualiza um registro de Açaí existente pelo ID.
+- **PATCH** `/acai/:id/price`: Atualiza apenas o preço de um registro de Açaí pelo ID.
+- **DELETE** `/acai/:id`: Deleta um registro de Açaí pelo ID.
 
 ## 🎲 Como rodar o projeto?
 
