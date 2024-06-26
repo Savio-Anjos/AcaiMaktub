@@ -15,7 +15,7 @@ import {
 import { useAppDispatch } from "@/store";
 import { Card } from "@/components/Card";
 import Modal from "@/components/Modal";
-import { IAcai, IAcaiState } from "@/store/slices/acaiSlice";
+import { IAcai } from "@/store/slices/acaiSlice";
 
 interface IFormData {
   name: string;

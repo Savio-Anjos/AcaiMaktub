@@ -47,7 +47,7 @@
   position: absolute;
   color: #fff;
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
   transform: translate(-50%, -50%);
   margin-left: 17rem;
 }
@@ -104,9 +104,30 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px) {
+  .wordWaves span {
+    margin-left: 12rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
   .wordWaves span {
     margin-left: 7rem;
     font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wordWaves span {
+    margin-left: 6rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wordWaves span {
+    margin-left: 7rem;
+    font-size: 2rem;
   }
 }

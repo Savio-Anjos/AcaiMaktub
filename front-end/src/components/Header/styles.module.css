@@ -1,15 +1,11 @@
 .nav {
   display: flex;
-
   justify-content: space-between;
-  padding-block: 0.7rem;
-  padding-left: 1.5rem;
+  padding-left: 1.2rem;
   padding-right: 1rem;
   align-items: center;
   border: 2px solid var(--accent-color);
   border-radius: 2rem;
-  padding-block: 0;
-  margin-block: 0;
 }
 
 .nav ul {
@@ -18,12 +14,10 @@
   justify-content: space-around;
   width: 18rem;
   list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
 }
 
 .nav ul li {
-  padding: 0.5rem;
+  padding-inline: 0.5rem;
   transition: 1s;
   border: 3px solid transparent;
 }
@@ -39,6 +33,10 @@
   color: var(--primary-color);
   font-size: 1rem;
   font-weight: 600;
+}
+
+.nav img {
+  margin-block: 0.2rem;
 }
 
 @media screen and (max-width: 800px) {

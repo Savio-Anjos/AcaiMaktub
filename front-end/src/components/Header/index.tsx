@@ -1,20 +1,23 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 export const Header = () => {
   return (
     <main className={styles.container}>
       <nav className={styles.nav}>
-        <Image alt="Logo" src={"/logo.png"} width={75} height={65} />
+        <Link href={"/"}>
+          <Image alt="Logo" src={"/logo.png"} width={110} height={85} />
+        </Link>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="/products">Products</a>
+            <Link href="/products">Products</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </nav>
